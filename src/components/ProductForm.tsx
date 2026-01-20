@@ -5,12 +5,23 @@ export default function ProductForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
 
   const onSubmit = (data:any) => {
-    console.log("Product Data:", data);
-    alert(`Product "${data.name}" added successfully!`);
+    let existingData = localStorage.getItem("product");
+
+        let dataArray = existingData ? JSON.parse(existingData) : [];
+
+        if (!Array.isArray(dataArray)) {
+            dataArray = [];
+        }
+
+        dataArray.push(data);
+
+    localStorage.setItem("product", JSON.stringify(dataArray));
+    reset();
   };
 
   return (
