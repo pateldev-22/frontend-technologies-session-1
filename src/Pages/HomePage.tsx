@@ -8,7 +8,7 @@ export default function HomePage(){
     let data : String | never[] = localStorage.getItem("product") ?? [];
     let ProductDetails : String | never[] = JSON.parse(data); 
 
-
+    
     return(
     <>
     <div className="grid grid-cols-3 gap-4">

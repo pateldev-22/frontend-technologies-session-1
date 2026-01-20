@@ -1,3 +1,5 @@
+import type { Product } from "@/types/products";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function ProductForm() {
@@ -8,19 +10,15 @@ export default function ProductForm() {
     reset
   } = useForm();
 
+const [product,setProducts] = useState<Product[]>(() => {
+    const renderItems = localStorage.getItem("product");
+    return renderItems ? JSON.parse(renderItems) : [];
+  })
 
   const onSubmit = (data:any) => {
-    let existingData = localStorage.getItem("product");
-
-        let dataArray = existingData ? JSON.parse(existingData) : [];
-
-        if (!Array.isArray(dataArray)) {
-            dataArray = [];
-        }
-
-        dataArray.push(data);
-
-    localStorage.setItem("product", JSON.stringify(dataArray));
+    const updated_products = [...product, data];
+    setProducts(updated_products);
+    localStorage.setItem("product", JSON.stringify(updated_products));
     reset();
   };
 
