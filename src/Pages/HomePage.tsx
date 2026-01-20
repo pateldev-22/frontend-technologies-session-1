@@ -13,9 +13,7 @@ export default function HomePage(){
     <>
     <div className="grid grid-cols-3 gap-4">
         <div className="bg-blue-200 p-4 rounded col-span-2">
-                {ProductDetails.map((product) => (
-                    <ReusableCard product = {product}/>
-                ))}
+                <ReusableCard ProductList={ProductDetails}/>
         </div>
 
         <div className="bg-green-200 p-4 rounded">

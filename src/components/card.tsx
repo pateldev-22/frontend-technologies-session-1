@@ -6,15 +6,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import type { Product } from "@/types/products"
 
 
-export default function ReusableCard({product}:any) {
-    console.log(product);
+export default function ReusableCard({ProductList}:any) {
+    console.log(ProductList);
   return (
     <>
     <div className="grid grid-cols-2 gap-2">
 
-    <Card className="w-full max-w-sm mt-20 ml-10">
+    {ProductList.map((product : Product) => (
+    <Card className="max-w-sm mt-20 ml-10">
       <CardHeader>
         <CardTitle className="text-black">{product.name}</CardTitle>
         <CardDescription>
@@ -29,6 +31,7 @@ export default function ReusableCard({product}:any) {
       <CardFooter className="flex-col gap-2">
       </CardFooter>
     </Card>
+    ))}
     </div>
     </>
   )
