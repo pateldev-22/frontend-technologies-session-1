@@ -12,11 +12,13 @@ import { useState } from "react";
 export default function ReusableCard({ProductList}:any) {
     console.log(ProductList);
     const [query, setQuery] = useState<string>("");
+    const [products,setProducts] = useState<Product[]>(ProductList);
+
     const handleSearch = (e:any) => {
         setQuery(e.target.value);
     }
-    const filteredData = ProductList.filter((item:any) =>
-    item.toLowerCase().includes(query.toLowerCase().trim())
+    const filteredData = products.filter((item) =>
+        item.name.toLowerCase().includes(query.toLowerCase().trim())
     );
 
     const handleDelete = (name : String)=> {
@@ -49,20 +51,13 @@ export default function ReusableCard({ProductList}:any) {
         placeholder="Search..."
         value={query}
         onChange={handleSearch}
-        style={{
-          width: "100%",
-          padding: "8px",
-          fontSize: "16px",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
-        }}
-      />
+        className="w-full p-2 mb-4"
+    />
     
 
-          {filteredData}
 
     <div className="grid grid-cols-2 gap-2">
-    {ProductList.map((product : Product) => (
+    {filteredData.map((product : Product) => (
      <ul>
         <li key={product.id}>
             
