@@ -1,12 +1,13 @@
 import ReusableCard from "@/components/card";
+import ProductForm from "@/components/ProductForm";
 import type { Product } from "@/types/products";
 
 
 export default function HomePage(){
     const ProductDetails : Product[] = [
-        { id: 1, name: 'mobile', price: "30000.00" , stock:"6" },
-        { id: 2, name: 'laptop', price: "250000.00" , stock:"0"},
-        { id: 3, name: 'earbuds', price: "2000.00" , stock:"3"},
+        { id: 1, name: 'mobile', price: "30000.00" ,category:"electronics", stock:"6" },
+        { id: 2, name: 'laptop', price: "250000.00" ,category:"electronics", stock:"0"},
+        { id: 3, name: 'earbuds', price: "2000.00" ,category:"electronics", stock:"3"},
     ]
     // const check_status = () => {
     //     const final_productList = ProductDetails.filter((product) => {
@@ -21,7 +22,7 @@ export default function HomePage(){
         </div>
 
         <div className="bg-green-200 p-4 rounded">
-            Component 2
+                 <ProductForm />
         </div>
     </div>
     </>
