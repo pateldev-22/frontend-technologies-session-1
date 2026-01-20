@@ -47,7 +47,7 @@ export default function Navbar() {
       </div>
 
       <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pt-2 pb-3 ">
+        <div className="flex flex-col space-y-2 px-4 pb-4 pt-2 bg-green-500 text-white ">
           {navigation.map((item) => (
             <DisclosureButton
               key={item.name}

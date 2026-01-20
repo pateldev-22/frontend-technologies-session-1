@@ -11,8 +11,8 @@ export default function ProductForm() {
   } = useForm();
 
 const [product,setProducts] = useState<Product[]>(() => {
-    const renderItems = localStorage.getItem("product");
-    return renderItems ? JSON.parse(renderItems) : [];
+    const renderProducts = localStorage.getItem("product");
+    return renderProducts ? JSON.parse(renderProducts) : [];
   })
 
   const onSubmit = (data:any) => {
@@ -24,7 +24,7 @@ const [product,setProducts] = useState<Product[]>(() => {
 
   return (
     <div >
-      <h2 className="text-3xl ml-28 mb-20">Add Product</h2>
+      <h2 className="text-3xl ml-28 mb-20 text-slate-800">Add Product</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1">
         
         {/* Product Name */}
@@ -78,7 +78,7 @@ const [product,setProducts] = useState<Product[]>(() => {
         {errors.stock && <p className="text-red-500">enter the amount of stock (cannot be negative) </p>}
 
         {/* Submit Button */}
-        <button className="bg-yellow-300 mt-4" type="submit">Add Product</button>
+        <button className="bg-black text-white mt-4" type="submit">Add Product</button>
       </form>
     </div>
   );
